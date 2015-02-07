@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% load bootstrap3 %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="col-md-4" align="center"><img src="{% static 'images/contactus.jpg' %}" width="200" height="153" hspace="40"/>
+    <dt><strong>Austin's Remodeling Company</strong><br>
+    2541 S IH-35 STE 200
+    Round Rock 78664-7357</dt>
+    <h3>512-825-6746</h3>Email for more information or a qoute, today!<br>
+    <p><a href="https://www.facebook.com/austinremodel">
+    <img src="{% static 'images/fb.jpg' %}" width="70" height="70"></a>
+    <a href="https://twitter.com/WongsEnterprise">
+    <img src="{% static 'images/twitter.jpg' %}" width="70" height="70" border="0"></a></p>
+</div>
+
+{% block content-wrap %}
+<div id="contact_wrap">
+<div id="contact" class="clearfix">
+  <div class="col-md-8">
+   <form action="{% url 'ar.views.contact' %}" method="post">
+       {% csrf_token %}
+   {% bootstrap_form form %}
+       {% buttons %} <button type="submit" class="btn btn-default">Submit</button> {% endbuttons %}
+   </form>
+</div>
+</div>
+</div>
+    {% endblock %}
+
+
+{% endblock %}

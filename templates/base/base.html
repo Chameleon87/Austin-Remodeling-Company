@@ -1,0 +1,55 @@
+{% load staticfiles %}
+
+<html>
+<head>
+<title>Austin's Remodeling Company</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="http://codeorigin.jquery.com/jquery-2.0.3.js"></script>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" style="text/css" href="{% static 'css/main.css' %}">
+</head>
+
+
+<body>
+<div id="content" class="container">
+    <nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/logo.jpg' %}" height="100%">
+        </a>
+   </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'ar.views.index' %}" class="first">Home</a></li>
+            <li><a href="{% url 'ar.views.commercial' %}">Commercial</a></li>
+            <li><a href="{% url 'ar.views.residential' %}">Residential</a></li>
+            <li><a href="{% url 'ar.views.hometheatre' %}.html">Home Theatre Installation</a></li>
+            <li><a href="{% url 'ar.views.ssf' %}">Stainless Steel Fabrication</a></li>
+            <li><a href="{% url 'ar.views.contact' %}">Contact Us</a></li>        
+        </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>
+        <!-- /content-->
+    {% block content %}
+      
+      
+      
+    {% endblock %}
+<!-- footer --><hr>
+<div id="footer" align="center">
+<a href="contact.html"><b>Contact Us</b></a><br>
+Austin's Remodeling Company &copy; Copyright 2006
+</div>
+</body>
+</html>

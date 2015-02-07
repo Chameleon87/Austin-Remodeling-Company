@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="row">
+    <div class="col-xs-6 col-sm-3">
+        <a href="{% url 'ar.views.commercial' %}"><div class="linkicon" id="commercial"></div></a>
+            <ul class="cando">
+                <li>Floor Clean</li>
+                <li>Seal</li>
+                <li>Wax</li>
+            </ul>
+      </div>
+<div class="col-xs-6 col-sm-3">
+    <a href="{% url 'ar.views.residential' %}"><div class="linkicon" id="residential"></div></a>
+        <ul class="cando">
+            <li>Granite Counters</li>
+            <li>Cabinets</li>
+            <li>Cabinet Color Change</li>
+            <li>Lighting</li>
+        </ul>
+</div>
+<div class="col-xs-6 col-sm-3">
+        <a href="{% url 'ar.views.hometheatre' %}">
+            <div class="linkicon" id="hometheatre"></div>
+        </a>
+        <ul class="cando">
+            <li>Sorround Sound</li>
+            <li>Projectors and Projector Screening</li>
+            <li>Audio/Video Wiring</li>
+            <li>Ergonomical Accessibility to all electronics</li>
+        </ul>
+</div>
+<div class="col-xs-6 col-sm-3">
+    <a href="{% url 'ar.views.ssf' %}">
+        <div class="linkicon" id="ssf"> </div>
+    </a>
+        <ul class="cando">
+            <li>Commercial Hood Install</li>
+            <li>Stainless Steel Fabrication</li>
+            <li>Stainless Steel Repair</li>
+            <li>Custom Commercial Kitchen Type 1, 2 Hoods</li>
+        </ul>
+</div>
+</div>
+{% endblock %}

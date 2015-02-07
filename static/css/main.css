@@ -1,0 +1,44 @@
+body {
+background-image: -webkit-linear-gradient(#8A8A8A 0%, #000000 100%);
+background-image: -o-linear-gradient(#8A8A8A 0%, #000000 100%);
+background-image: linear-gradient(#8A8A8A 0%, #000000 100%);
+}    
+h2 {
+    text-align: center;
+}
+p.blocktext {
+    text-align: center;
+    text-wrap: normal;
+}
+#footer {
+    text-align: center;
+}
+
+.linkicon {
+    overflow: hidden;
+    height: 15em;
+    background-size: cover;
+    background-position: bottom;
+}
+
+@media (min-width: 768px) {
+    .linkicon {
+        height: 750px;
+    }
+}
+
+#commercial {
+    background-image: url('../images/commercial.jpg');
+}
+
+#residential {
+    background-image: url('../images/residential.jpg');
+}
+
+#hometheatre {
+    background-image: url('../images/hometheatre.jpg');
+}
+
+#ssf {
+    background-image: url('../images/ss.jpg');
+}
