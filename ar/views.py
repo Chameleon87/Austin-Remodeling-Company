@@ -25,11 +25,6 @@ def ssf(request):
     return render_to_response('ssf.html', RequestContext(request))
 
 def contact(request):
-    # instead of pulling this shit out manuall...
-	#subject = request.POST.get('topic', '')
-    #message = request.POST.get('message', '')
-    #from_email = request.POST.get('email', '')
-        
     if request.POST:
         form = ContactForm(request.POST)
 
