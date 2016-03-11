@@ -1,6 +1,4 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
 from django import forms
 from django.forms.widgets import *
 from django.core.mail import send_mail, BadHeaderError
@@ -17,10 +15,10 @@ def hometheatre(request):
     return render(request, 'hometheatre.html')
 
 def residential(request):
-    return render_to_response(request, 'residential.html')
+    return render(request, 'residential.html')
 
 def ssf(request):
-    return render_to_response(request, 'ssf.html')
+    return render(request, 'ssf.html')
 
 def contact(request):
     if request.POST:
@@ -33,8 +31,8 @@ def contact(request):
             send_mail(form.cleaned_data['subject'] + ' ' + form.cleaned_data['type_of_work'], form.cleaned_data['message'], 
                      form.cleaned_data['email'], ['jessehodge1987@gmail.com'])
         except BadHeaderError:
-           return HttpResponse('Invalid header found.')
-        return HttpResponseRedirect('thankyou.html')
+           return render('Invalid header found.')
+        return redirect('thankyou.html')
     else:
         return render(request, 'contact.html', {'form': form})
         
