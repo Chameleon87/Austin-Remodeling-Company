@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.template import RequestContext, Context
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
@@ -9,38 +9,38 @@ from django.core.context_processors import csrf
 from ar.forms import ContactForm
 
 def index(request):
-    return render_to_response('index.html', RequestContext(request))
+    return render(request, 'index.html')
 
 def commercial(request):
-    return render_to_response('commercial.html', RequestContext(request))
+    return render(request, 'commercial.html')
 
 def hometheatre(request):
-    return render_to_response('hometheatre.html', RequestContext(request))
+    return render(request, 'hometheatre.html')
 
 def residential(request):
-    return render_to_response('residential.html', RequestContext(request))
+    return render_to_response(request, 'residential.html')
 
 def ssf(request):
-    return render_to_response('ssf.html', RequestContext(request))
+    return render_to_response(request, 'ssf.html')
 
 def contact(request):
     if request.POST:
         form = ContactForm(request.POST)
-        if form.is_valid():
-            try:
-                send_mail(form.cleaned_data['subject'] + ' ' + form.cleaned_data['type_of_work'], form.cleaned_data['message'], 
-                          form.cleaned_data['email'], ['jessehodge1987@gmail.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return HttpResponseRedirect('thankyou.html')
-        else:
-            return render_to_response('contact.html', {'form': form})
     else:
-        return render_to_response('contact.html', {'form': ContactForm()},
-            RequestContext(request))
+        form = ContactForm()
+			
+    if form.is_valid():
+        try:
+            send_mail(form.cleaned_data['subject'] + ' ' + form.cleaned_data['type_of_work'], form.cleaned_data['message'], 
+                     form.cleaned_data['email'], ['jessehodge1987@gmail.com'])
+        except BadHeaderError:
+           return HttpResponse('Invalid header found.')
+        return HttpResponseRedirect('thankyou.html')
+    else:
+        return render(request, 'contact.html', {'form': form})
+        
+def thankyou(request):
+    return render(request, 'thankyou.html')
 
 def thankyou(request):
-    return render_to_response('thankyou.html', RequestContext(request))
-
-def thankyou(request):
-		return render_to_response('thankyou.html')
+		return render(request, 'thankyou.html')
