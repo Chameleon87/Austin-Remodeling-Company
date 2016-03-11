@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.template import RequestContext, Context
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django import forms
